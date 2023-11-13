@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SıgnalRProject.Entity.BaseEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class Basket
+    public class Basket : EntityBase
     {
         public int BasketID { get; set; }
         public decimal Price { get; set; }

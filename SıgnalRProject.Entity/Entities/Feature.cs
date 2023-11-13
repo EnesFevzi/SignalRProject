@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SıgnalRProject.Entity.BaseEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class Feature
+    public class Feature : EntityBase
     {
         public int FeatureID { get; set; }
         public string Title1 { get; set; }

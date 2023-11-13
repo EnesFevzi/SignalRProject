@@ -6,4 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NToastNotify" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SıgnalRProject.DataAccess\SıgnalRProject.DataAccess.csproj" />
+    <ProjectReference Include="..\SıgnalRProject.Entity\SıgnalRProject.Entity.csproj" />
+    <ProjectReference Include="..\SıgnalRProject.Service\SıgnalRProject.Service.csproj" />
+  </ItemGroup>
+
 </Project>

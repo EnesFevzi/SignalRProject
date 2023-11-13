@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SıgnalRProject.Entity.BaseEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class Message
+    public class Message : EntityBase
     {
         public int MessageID { get; set; }
         public string NameSurname { get; set; }
@@ -15,6 +16,6 @@ namespace SıgnalRProject.Entity.Entities
         public string Subject { get; set; }
         public string MessageContent { get; set; }
         public DateTime MessageSendDate { get; set; }
-        public bool Status { get; set; }
+      
     }
 }

@@ -4,6 +4,7 @@ using SıgnalRProject.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,5 +37,13 @@ namespace SıgnalRProject.DataAccess.Context
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Message> Messages { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+        }
     }
+    
 }

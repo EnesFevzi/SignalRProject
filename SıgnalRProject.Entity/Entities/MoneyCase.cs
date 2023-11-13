@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SıgnalRProject.Entity.BaseEntities;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class MoneyCase
+    public class MoneyCase : IEntityBase
     {
         public int MoneyCaseID { get; set; }
         public decimal TotalAmount { get; set; }
