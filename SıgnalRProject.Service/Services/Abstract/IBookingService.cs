@@ -9,5 +9,7 @@ namespace SıgnalRProject.Service.Services.Abstract
 {
     public interface IBookingService : IService<Booking>
     {
+        Task BookingStatusApproved(int id);
+        Task BookingStatusCancelled(int id);
     }
 }

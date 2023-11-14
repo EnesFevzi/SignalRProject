@@ -1,3 +1,8 @@
+
+using SıgnalRProject.DataAccess.Extensions;
+using SıgnalRProject.Service.Extensions;
+using System.Reflection;
+
 namespace SıgnalRProject.API
 {
     public class Program
@@ -9,6 +14,10 @@ namespace SıgnalRProject.API
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.LoadDataLayerExtension(builder.Configuration);
+            builder.Services.LoadServiceLayerExtension();
+            builder.Services.AddSignalR();
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

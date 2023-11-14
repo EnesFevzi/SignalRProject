@@ -25,6 +25,23 @@ namespace SıgnalRProject.Service.Services.Concrete
             throw new NotImplementedException();
         }
 
+        public async Task BookingStatusApproved(int id)
+        {
+            var booking = await unıtOfWork.GetRepository<Booking>().GetByIDAsync(id);
+            booking.Description = "Rezervasyon Yapıldı";
+            await unıtOfWork.GetRepository<Booking>().UpdateAsync(booking);
+            await unıtOfWork.SaveAsync();
+
+        }
+
+        public async Task BookingStatusCancelled(int id)
+        {
+            var booking = await unıtOfWork.GetRepository<Booking>().GetByIDAsync(id);
+            booking.Description = "Rezervasyon İptal Edildi";
+            await unıtOfWork.GetRepository<Booking>().UpdateAsync(booking);
+            await unıtOfWork.SaveAsync();
+        }
+
         public Task<int> CountAsync(Expression<Func<Booking, bool>> predicate = null)
         {
             throw new NotImplementedException();
@@ -58,7 +75,7 @@ namespace SıgnalRProject.Service.Services.Concrete
 
         public async Task<Booking> GetByGuidAsync(Guid id)
         {
-           return await unıtOfWork.GetRepository<Booking>().GetByGuidAsync(id);
+            return await unıtOfWork.GetRepository<Booking>().GetByGuidAsync(id);
         }
 
         public async Task<Booking> GetByIDAsync(int id)

@@ -17,11 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SıgnalRProject.DataAccess\SıgnalRProject.DataAccess.csproj" />
+    <ProjectReference Include="..\SıgnalRProject.Dto\SıgnalRProject.Dto.csproj" />
     <ProjectReference Include="..\SıgnalRProject.Entity\SıgnalRProject.Entity.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="AutoMapper\" />
   </ItemGroup>
 
 </Project>

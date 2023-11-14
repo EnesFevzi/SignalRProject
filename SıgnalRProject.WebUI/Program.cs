@@ -19,7 +19,6 @@ namespace SıgnalRProject.WebUI
             builder.Services.AddHttpClient();
             builder.Services.AddAuthorization();
             builder.Services.LoadDataLayerExtension(builder.Configuration);
-            builder.Services.LoadServiceLayerExtension();
             builder.Services.AddSession();
             builder.Services.AddControllersWithViews().AddNToastNotifyToastr(new ToastrOptions()
             {
