@@ -13,10 +13,11 @@ namespace SıgnalRProject.Service.Services.Concrete
         {
             this.unıtOfWork = unıtOfWork;
         }
-        public async Task AddAsync(Testimonial entity)
+        public async Task<Testimonial> AddAsync(Testimonial entity)
         {
             await unıtOfWork.GetRepository<Testimonial>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public Task<bool> AnyAsync(Expression<Func<Testimonial, bool>> predicate)
@@ -29,10 +30,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             throw new NotImplementedException();
         }
 
-        public async Task DeleteAsync(Testimonial entity)
+        public async Task<Testimonial> DeleteAsync(Testimonial entity)
         {
             await unıtOfWork.GetRepository<Testimonial>().DeleteAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public async Task<List<Testimonial>> GetAllAsync(Expression<Func<Testimonial, bool>> predicate = null, params Expression<Func<Testimonial, object>>[] includeProperties)
@@ -65,10 +67,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<Testimonial>().GetByIDAsync(id);
         }
 
-        public async Task UpdateAsync(Testimonial entity)
+        public async Task<Testimonial> UpdateAsync(Testimonial entity)
         {
             await unıtOfWork.GetRepository<Testimonial>().UpdateAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
     }
 }

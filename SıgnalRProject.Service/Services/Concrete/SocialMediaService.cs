@@ -13,10 +13,11 @@ namespace SıgnalRProject.Service.Services.Concrete
         {
             this.unıtOfWork = unıtOfWork;
         }
-        public async Task AddAsync(SocialMedia entity)
+        public async Task<SocialMedia> AddAsync(SocialMedia entity)
         {
             await unıtOfWork.GetRepository<SocialMedia>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public Task<bool> AnyAsync(Expression<Func<SocialMedia, bool>> predicate)
@@ -29,10 +30,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             throw new NotImplementedException();
         }
 
-        public async Task DeleteAsync(SocialMedia entity)
+        public async Task<SocialMedia> DeleteAsync(SocialMedia entity)
         {
             await unıtOfWork.GetRepository<SocialMedia>().DeleteAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public async Task<List<SocialMedia>> GetAllAsync(Expression<Func<SocialMedia, bool>> predicate = null, params Expression<Func<SocialMedia, object>>[] includeProperties)
@@ -65,10 +67,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<SocialMedia>().GetByIDAsync(id);
         }
 
-        public async Task UpdateAsync(SocialMedia entity)
+        public async Task<SocialMedia> UpdateAsync(SocialMedia entity)
         {
             await unıtOfWork.GetRepository<SocialMedia>().UpdateAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
     }
 }

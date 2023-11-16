@@ -9,5 +9,8 @@ namespace SıgnalRProject.Service.Services.Abstract
 {
     public interface IDiscountService : IService<Discount>
     {
+        Task ChangeStatusToTrue(int id);
+        Task ChangeStatusToFalse(int id);
+        Task<List<Discount>> GetListByStatusTrue();
     }
 }

@@ -14,10 +14,11 @@ namespace SıgnalRProject.Service.Services.Concrete
         {
             this.unıtOfWork = unıtOfWork;
         }
-        public async Task AddAsync(Booking entity)
+        public async Task<Booking> AddAsync(Booking entity)
         {
             await unıtOfWork.GetRepository<Booking>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public Task<bool> AnyAsync(Expression<Func<Booking, bool>> predicate)
@@ -47,10 +48,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             throw new NotImplementedException();
         }
 
-        public async Task DeleteAsync(Booking entity)
+        public async Task<Booking> DeleteAsync(Booking entity)
         {
             await unıtOfWork.GetRepository<Booking>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public async Task<List<Booking>> GetAllAsync(Expression<Func<Booking, bool>> predicate = null, params Expression<Func<Booking, object>>[] includeProperties)
@@ -83,10 +85,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<Booking>().GetByIDAsync(id);
         }
 
-        public async Task UpdateAsync(Booking entity)
+        public async Task<Booking> UpdateAsync(Booking entity)
         {
             await unıtOfWork.GetRepository<Booking>().UpdateAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
     }
 }

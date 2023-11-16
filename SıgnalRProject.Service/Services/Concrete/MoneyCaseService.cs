@@ -13,10 +13,11 @@ namespace SıgnalRProject.Service.Services.Concrete
         {
             this.unıtOfWork = unıtOfWork;
         }
-        public async Task AddAsync(MoneyCase entity)
+        public async Task<MoneyCase> AddAsync(MoneyCase entity)
         {
             await unıtOfWork.GetRepository<MoneyCase>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public Task<bool> AnyAsync(Expression<Func<MoneyCase, bool>> predicate)
@@ -29,10 +30,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             throw new NotImplementedException();
         }
 
-        public async Task DeleteAsync(MoneyCase entity)
+        public async Task<MoneyCase> DeleteAsync(MoneyCase entity)
         {
             await unıtOfWork.GetRepository<MoneyCase>().DeleteAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public async Task<List<MoneyCase>> GetAllAsync(Expression<Func<MoneyCase, bool>> predicate = null, params Expression<Func<MoneyCase, object>>[] includeProperties)
@@ -50,7 +52,7 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<MoneyCase>().GetAsync(predicate, includeProperties);
         }
 
-        public  async Task<MoneyCase> GetAsync(params Expression<Func<MoneyCase, object>>[] includeProperties)
+        public async Task<MoneyCase> GetAsync(params Expression<Func<MoneyCase, object>>[] includeProperties)
         {
             return await unıtOfWork.GetRepository<MoneyCase>().GetAsync(includeProperties);
         }
@@ -65,10 +67,20 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<MoneyCase>().GetByIDAsync(id);
         }
 
-        public async Task UpdateAsync(MoneyCase entity)
+        public async Task<decimal> TotalMoneyCaseAmount()
+        {
+            var moneycases = await unıtOfWork.GetRepository<MoneyCase>().GetAllAsync();
+
+            var value = moneycases.Select(x => x.TotalAmount).FirstOrDefault();
+
+            return value;
+        }
+
+        public async Task<MoneyCase> UpdateAsync(MoneyCase entity)
         {
             await unıtOfWork.GetRepository<MoneyCase>().UpdateAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
     }
 }

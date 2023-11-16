@@ -13,10 +13,11 @@ namespace SıgnalRProject.Service.Services.Concrete
         {
             this.unıtOfWork = unıtOfWork;
         }
-        public async Task AddAsync(Category entity)
+        public async Task<Category> AddAsync(Category entity)
         {
             await unıtOfWork.GetRepository<Category>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public Task<bool> AnyAsync(Expression<Func<Category, bool>> predicate)
@@ -29,10 +30,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             throw new NotImplementedException();
         }
 
-        public async Task DeleteAsync(Category entity)
+        public async Task<Category> DeleteAsync(Category entity)
         {
             await unıtOfWork.GetRepository<Category>().DeleteAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public async Task<List<Category>> GetAllAsync(Expression<Func<Category, bool>> predicate = null, params Expression<Func<Category, object>>[] includeProperties)
@@ -65,10 +67,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<Category>().GetByIDAsync(id);
         }
 
-        public async Task UpdateAsync(Category entity)
+        public async Task<Category> UpdateAsync(Category entity)
         {
             await unıtOfWork.GetRepository<Category>().UpdateAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
     }
 }

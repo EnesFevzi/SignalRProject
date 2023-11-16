@@ -13,10 +13,11 @@ namespace SıgnalRProject.Service.Services.Concrete
         {
             this.unıtOfWork = unıtOfWork;
         }
-        public async Task AddAsync(MenuTable entity)
+        public async Task<MenuTable> AddAsync(MenuTable entity)
         {
             await unıtOfWork.GetRepository<MenuTable>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public Task<bool> AnyAsync(Expression<Func<MenuTable, bool>> predicate)
@@ -29,10 +30,11 @@ namespace SıgnalRProject.Service.Services.Concrete
             throw new NotImplementedException();
         }
 
-        public async Task DeleteAsync(MenuTable entity)
+        public async Task<MenuTable> DeleteAsync(MenuTable entity)
         {
             await unıtOfWork.GetRepository<MenuTable>().DeleteAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
 
         public async Task<List<MenuTable>> GetAllAsync(Expression<Func<MenuTable, bool>> predicate = null, params Expression<Func<MenuTable, object>>[] includeProperties)
@@ -65,10 +67,17 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<MenuTable>().GetByIDAsync(id);
         }
 
-        public async Task UpdateAsync(MenuTable entity)
+        public async Task<int> MenuTableCount()
+        {
+           var value = await unıtOfWork.GetRepository<MenuTable>().CountAsync();
+            return value;
+        }
+
+        public async Task<MenuTable> UpdateAsync(MenuTable entity)
         {
             await unıtOfWork.GetRepository<MenuTable>().UpdateAsync(entity);
             await unıtOfWork.SaveAsync();
+            return entity;
         }
     }
 }

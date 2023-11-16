@@ -9,5 +9,6 @@ namespace SıgnalRProject.Service.Services.Abstract
 {
     public interface IMoneyCaseService : IService<MoneyCase>
     {
+        Task<decimal> TotalMoneyCaseAmount();
     }
 }
