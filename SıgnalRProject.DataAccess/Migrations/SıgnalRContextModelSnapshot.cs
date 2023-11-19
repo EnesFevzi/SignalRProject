@@ -419,6 +419,9 @@ namespace SıgnalRProject.DataAccess.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
@@ -530,6 +533,9 @@ namespace SıgnalRProject.DataAccess.Migrations
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -748,6 +754,9 @@ namespace SıgnalRProject.DataAccess.Migrations
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Type")
                         .IsRequired()

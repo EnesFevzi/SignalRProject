@@ -88,9 +88,9 @@ namespace SıgnalRProject.API.Controllers
         }
 
         [HttpGet("ProductListWithCategory")]
-        public IActionResult ProductListWithCategory()
+        public async Task<IActionResult> ProductListWithCategory()
         {
-            var products = _productService.GetProductsWithCategories();
+            var products = await _productService.GetProductsWithCategories();
             var map = _mapper.Map<List<ResultProductDto>>(products);
             return Ok(map);
         }

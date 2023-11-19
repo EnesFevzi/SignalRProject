@@ -12,5 +12,6 @@ namespace SıgnalRProject.Entity.Entities
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
         public List<Product> Products { get; set; }
+        public bool Status { get; set; }
     }
 }

@@ -1,0 +1,21 @@
+﻿
+<!DOCTYPE html>
+<html>
+<partial name="_AdminLayoutPartial/_LayoutHeaderPartial"></partial>
+<body>
+	<div class="wrapper">
+		<partial name="_AdminLayoutPartial/_LayoutNavbarPartial"></partial>
+
+		<partial name="_AdminLayoutPartial/_LayoutSidebarPartial"></partial>
+
+
+		<div class="main-panel">
+
+			@RenderBody()
+
+			<partial name="_AdminLayoutPartial/_LayoutFooterPartial"></partial>
+		</div>
+	</div>
+	<partial name="_AdminLayoutPartial/_LayoutScriptPartial"></partial>
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿using SıgnalRProject.DataAccess.UnıtOfWorks;
+using SıgnalRProject.Dto.CategoryDto;
 using SıgnalRProject.Entity.Entities;
 using SıgnalRProject.Service.Services.Abstract;
 using System.Linq.Expressions;
@@ -13,8 +14,15 @@ namespace SıgnalRProject.Service.Services.Concrete
         {
             this.unıtOfWork = unıtOfWork;
         }
+
+        public async Task<int> ActiveCategoryCount()
+        {
+           return  await unıtOfWork.GetRepository<Category>().CountAsync(x=>x.Status ==true);
+        }
+
         public async Task<Category> AddAsync(Category entity)
         {
+            entity.Status = true;
             await unıtOfWork.GetRepository<Category>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
             return entity;
@@ -23,6 +31,11 @@ namespace SıgnalRProject.Service.Services.Concrete
         public Task<bool> AnyAsync(Expression<Func<Category, bool>> predicate)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<int> CategoryCount()
+        {
+            return await unıtOfWork.GetRepository<Category>().CountAsync();
         }
 
         public Task<int> CountAsync(Expression<Func<Category, bool>> predicate = null)
@@ -65,6 +78,11 @@ namespace SıgnalRProject.Service.Services.Concrete
         public async Task<Category> GetByIDAsync(int id)
         {
             return await unıtOfWork.GetRepository<Category>().GetByIDAsync(id);
+        }
+
+        public async Task<int> PassiveCategoryCount()
+        {
+            return await unıtOfWork.GetRepository<Category>().CountAsync(x => x.Status == false);
         }
 
         public async Task<Category> UpdateAsync(Category entity)

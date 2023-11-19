@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SıgnalRProject.Dto.CategoryDto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,7 @@ namespace SıgnalRProject.Dto.ProductDto
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public bool ProductStatus { get; set; }
+        public ResultCategoryDto Category { get; set; }
+
     }
 }

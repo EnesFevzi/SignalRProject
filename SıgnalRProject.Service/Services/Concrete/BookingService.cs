@@ -1,4 +1,5 @@
 ﻿using SıgnalRProject.DataAccess.UnıtOfWorks;
+using SıgnalRProject.Dto.BookingDto;
 using SıgnalRProject.Entity.Entities;
 using SıgnalRProject.Service.Services.Abstract;
 using System.Linq.Expressions;
@@ -16,6 +17,7 @@ namespace SıgnalRProject.Service.Services.Concrete
         }
         public async Task<Booking> AddAsync(Booking entity)
         {
+            entity.Description = "Rezervasyon Alındı";
             await unıtOfWork.GetRepository<Booking>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
             return entity;
