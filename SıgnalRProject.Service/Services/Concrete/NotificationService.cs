@@ -47,6 +47,8 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<Notification>().GetAllAsync(includeProperties);
         }
 
+
+
         public async Task<Notification> GetAsync(Expression<Func<Notification, bool>> predicate, params Expression<Func<Notification, object>>[] includeProperties)
         {
             return await unıtOfWork.GetRepository<Notification>().GetAsync(predicate, includeProperties);
@@ -65,6 +67,34 @@ namespace SıgnalRProject.Service.Services.Concrete
         public async Task<Notification> GetByIDAsync(int id)
         {
             return await unıtOfWork.GetRepository<Notification>().GetByIDAsync(id);
+        }
+
+        public async Task<int> NotificationCountByStatusFalse()
+        {
+            var notification = await unıtOfWork.GetRepository<Notification>().CountAsync();
+            return notification;
+        }
+
+        public async Task NotificationStatusChangeToFalse(int id)
+        {
+            var notification = await unıtOfWork.GetRepository<Notification>().GetAsync(x => x.NotificationID == id);
+            notification.Status = false;
+            await unıtOfWork.GetRepository<Notification>().UpdateAsync(notification);
+            await unıtOfWork.SaveAsync();
+
+        }
+
+        public async Task NotificationStatusChangeToTrue(int id)
+        {
+            var notification = await unıtOfWork.GetRepository<Notification>().GetAsync(x => x.NotificationID == id);
+            notification.Status = true;
+            await unıtOfWork.GetRepository<Notification>().UpdateAsync(notification);
+            await unıtOfWork.SaveAsync();
+        }
+        public async Task<List<Notification>> GetAllNotificationByFalse()
+        {
+            var notifications = await unıtOfWork.GetRepository<Notification>().GetAllAsync(x => x.Status == false);
+            return notifications;
         }
 
         public async Task<Notification> UpdateAsync(Notification entity)

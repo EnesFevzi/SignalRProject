@@ -13,6 +13,9 @@ namespace SıgnalRProject.Service.Services.Concrete
         {
             this.unıtOfWork = unıtOfWork;
         }
+
+
+
         public async Task<Order> AddAsync(Order entity)
         {
             await unıtOfWork.GetRepository<Order>().AddAsync(entity);
@@ -65,6 +68,28 @@ namespace SıgnalRProject.Service.Services.Concrete
         public async Task<Order> GetByIDAsync(int id)
         {
             return await unıtOfWork.GetRepository<Order>().GetByIDAsync(id);
+        }
+        public async Task<int> ActiveOrderCount()
+        {
+            var order = await unıtOfWork.GetRepository<Order>().CountAsync(x => x.Description == "Müşteri Masada");
+            return order;
+        }
+        public async Task<decimal> LastOrderPrice()
+        {
+            var orders = await unıtOfWork.GetRepository<Order>().GetAllAsync();
+            var value = orders.OrderByDescending(x => x.OrderID).Take(1).Select(x => x.TotalPrice).FirstOrDefault();
+            return value;
+        }
+
+        public async Task<decimal> TodayTotalPrice()
+        {
+            return 0;
+        }
+
+        public async Task<int> TotalOrderCount()
+        {
+            var order = await unıtOfWork.GetRepository<Order>().CountAsync();
+            return order;
         }
 
         public async Task<Order> UpdateAsync(Order entity)

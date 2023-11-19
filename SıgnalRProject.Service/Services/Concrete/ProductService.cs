@@ -67,6 +67,86 @@ namespace SıgnalRProject.Service.Services.Concrete
             return await unıtOfWork.GetRepository<Product>().GetByIDAsync(id);
         }
 
+        public async Task<List<Product>> GetProductsWithCategories()
+        {
+            return await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.Category);
+        }
+
+        public async Task<decimal> ProductAvgPriceByHamburger()
+        {
+            var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "Hamburger");
+            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.CategoryID == hamburgerCategory.CategoryID);
+            var average = products.Average(x => x.Price);
+            return average;
+
+        }
+
+        public async Task<int> ProductCount()
+        {
+            return await unıtOfWork.GetRepository<Product>().CountAsync();
+        }
+
+        public async Task<int> ProductCountByCategoryNameDrink()
+        {
+            var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "İçecek");
+            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.CategoryID == hamburgerCategory.CategoryID);
+            return products.Count();
+        }
+
+        public async Task<int> ProductCountByCategoryNameHamburger()
+        {
+            var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "Hamburger");
+            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.CategoryID == hamburgerCategory.CategoryID);
+            return products.Count();
+        }
+
+        public async Task<string> ProductNameByMaxPrice()
+        {
+            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync();
+            var maxprice = products.Max(x => x.Price);
+            var maxPriceProduct = await unıtOfWork.GetRepository<Product>()
+            .GetAsync(x => x.Price == maxprice);
+            return maxPriceProduct.ProductName;
+
+        }
+
+        public async Task<string> ProductNameByMinPrice()
+        {
+            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync();
+            var maxprice = products.Min(x => x.Price);
+            var maxPriceProduct = await unıtOfWork.GetRepository<Product>()
+            .GetAsync(x => x.Price == maxprice);
+            return maxPriceProduct.ProductName;
+        }
+
+        public async Task<decimal> ProductPriceAvg()
+        {
+            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync();
+            var average = products.Average(x => x.Price);
+            return average;
+        }
+
+        public async Task<decimal> ProductPriceBySteakBurger()
+        {
+            var products = await unıtOfWork.GetRepository<Product>().GetAsync(x => x.ProductName == "Steak Burger");
+            return products.Price;
+        }
+
+        public async Task<decimal> TotalPriceByDrinkCategory()
+        {
+            var category = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "İçecek");
+            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.CategoryID == category.CategoryID);
+            return products.Sum(x => x.Price);
+
+        }
+
+        public async Task<decimal> TotalPriceBySaladCategory()
+        {
+            var category = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "Salata");
+            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.CategoryID == category.CategoryID);
+            return products.Sum(x => x.Price);
+        }
+
         public async Task<Product> UpdateAsync(Product entity)
         {
             await unıtOfWork.GetRepository<Product>().UpdateAsync(entity);
