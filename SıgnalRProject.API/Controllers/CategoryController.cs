@@ -27,21 +27,21 @@ namespace SıgnalRProject.API.Controllers
 		}
 
 		[HttpGet("CategoryCount")]
-		public IActionResult CategoryCount()
+		public async Task< IActionResult> CategoryCount()
 		{
-			return Ok(_categoryService.CategoryCount());
+			return Ok(await _categoryService.CategoryCount());
 		}
 
 		[HttpGet("ActiveCategoryCount")]
-		public IActionResult ActiveCategoryCount()
+		public async Task<IActionResult> ActiveCategoryCount()
 		{
-			return Ok(_categoryService.ActiveCategoryCount());
+			return Ok(await _categoryService.ActiveCategoryCount());
 		}
 
 		[HttpGet("PassiveCategoryCount")]
-		public IActionResult PassiveCategoryCount()
+		public async Task<IActionResult> PassiveCategoryCount()
 		{
-			return Ok(_categoryService.PassiveCategoryCount());
+			return Ok(await _categoryService.PassiveCategoryCount());
 		}
 
 		[HttpPost]

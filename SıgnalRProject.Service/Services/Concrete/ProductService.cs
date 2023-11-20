@@ -88,16 +88,16 @@ namespace SıgnalRProject.Service.Services.Concrete
 
         public async Task<int> ProductCountByCategoryNameDrink()
         {
-            var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "İçecek");
-            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.CategoryID == hamburgerCategory.CategoryID);
-            return products.Count();
+            //var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "İçecek");
+            var products = await unıtOfWork.GetRepository<Product>().CountAsync(x => x.Category.CategoryName == "İçecek");
+            return products;
         }
 
         public async Task<int> ProductCountByCategoryNameHamburger()
         {
-            var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "Hamburger");
-            var products = await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.CategoryID == hamburgerCategory.CategoryID);
-            return products.Count();
+            //var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "Hamburger");
+            var products = await unıtOfWork.GetRepository<Product>().CountAsync(x => x.Category.CategoryName == "Hamburger");
+            return products;
         }
 
         public async Task<string> ProductNameByMaxPrice()

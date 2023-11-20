@@ -1,4 +1,5 @@
 
+using SıgnalRProject.API.Hubs;
 using SıgnalRProject.DataAccess.Extensions;
 using SıgnalRProject.Service.Extensions;
 using System.Reflection;
@@ -44,7 +45,7 @@ namespace SıgnalRProject.API
 			app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.MapHub<SignalRHub>("/signalrhub");
 
             app.MapControllers();
 

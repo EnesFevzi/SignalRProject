@@ -20,71 +20,71 @@ namespace SıgnalRProject.API.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public IActionResult ProductList()
+        public async Task<IActionResult> ProductList()
         {
-            var products = _productService.GetAllAsync();
+            var products =await _productService.GetAllAsync();
             var value = _mapper.Map<List<ResultProductDto>>(products);
             return Ok(value);
         }
 
         [HttpGet("ProductCount")]
-        public IActionResult ProductCount()
+        public async Task<IActionResult> ProductCount()
         {
-            return Ok(_productService.ProductCount());
+            return Ok(await _productService.ProductCount());
         }
 
         [HttpGet("TotalPriceByDrinkCategory")]
-        public IActionResult TotalPriceByDrinkCategory()
+        public async Task<IActionResult> TotalPriceByDrinkCategory()
         {
-            return Ok(_productService.TotalPriceByDrinkCategory());
+            return Ok(await _productService.TotalPriceByDrinkCategory());
         }
 
         [HttpGet("TotalPriceBySaladCategory")]
-        public IActionResult TotalPriceBySaladCategory()
+        public async Task<IActionResult> TotalPriceBySaladCategory()
         {
-            return Ok(_productService.TotalPriceBySaladCategory());
+            return Ok(await _productService.TotalPriceBySaladCategory());
         }
 
         [HttpGet("ProductNameByMaxPrice")]
-        public IActionResult ProductNameByMaxPrice()
+        public async Task<IActionResult> ProductNameByMaxPrice()
         {
-            return Ok(_productService.ProductNameByMaxPrice());
+            return Ok(await _productService.ProductNameByMaxPrice());
         }
 
         [HttpGet("ProductNameByMinPrice")]
-        public IActionResult ProductNameByMinPrice()
+        public async Task<IActionResult> ProductNameByMinPrice()
         {
-            return Ok(_productService.ProductNameByMinPrice());
+            return Ok(await _productService.ProductNameByMinPrice());
         }
 
         [HttpGet("ProductAvgPriceByHamburger")]
-        public IActionResult ProductAvgPriceByHamburger()
+        public async Task<IActionResult> ProductAvgPriceByHamburger()
         {
-            return Ok(_productService.ProductAvgPriceByHamburger());
+            return Ok(await _productService.ProductAvgPriceByHamburger());
         }
 
         [HttpGet("ProductCountByHamburger")]
-        public IActionResult ProductCountByHamburger()
+        public async Task<IActionResult> ProductCountByHamburger()
         {
-            return Ok(_productService.ProductCountByCategoryNameHamburger());
+            return Ok(await _productService.ProductCountByCategoryNameHamburger());
         }
 
         [HttpGet("ProductCountByDrink")]
-        public IActionResult ProductCountByDrink()
+        public async Task<IActionResult> ProductCountByDrink()
         {
-            return Ok(_productService.ProductCountByCategoryNameDrink());
+            return Ok(await _productService.ProductCountByCategoryNameDrink());
         }
 
         [HttpGet("ProductPriceAvg")]
-        public IActionResult ProductPriceAvg()
+        public async Task<IActionResult> ProductPriceAvg()
         {
-            return Ok(_productService.ProductPriceAvg());
+            return Ok(await _productService.ProductPriceAvg());
         }
 
         [HttpGet("ProductPriceBySteakBurger")]
-        public IActionResult ProductPriceBySteakBurger()
+        public async Task<IActionResult> ProductPriceBySteakBurger()
         {
-            return Ok(_productService.ProductPriceBySteakBurger());
+            return Ok(await _productService.ProductPriceBySteakBurger());
         }
 
         [HttpGet("ProductListWithCategory")]
