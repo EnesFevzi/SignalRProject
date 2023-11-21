@@ -45,16 +45,14 @@ namespace SıgnalRProject.API.Hubs
             var value6 = await _productService.ProductCountByCategoryNameDrink();
             await Clients.All.SendAsync("ReceiveProductCountByCategoryNameDrink", value6);
 
-            
+            var value8 = await _productService.ProductNameByMaxPrice();
+            await Clients.All.SendAsync("ReceiveProductNameByMaxPrice", value8);
 
-            //var value8 = await _productService.ProductNameByMaxPrice();
-            //await Clients.All.SendAsync("ReceiveProductNameByMaxPrice", value8);
+            var value9 =await  _productService.ProductNameByMinPrice();
+            await Clients.All.SendAsync("ReceiveProductNameByMinPrice", value9);
 
-            //var value9 = await _productService.ProductNameByMinPrice();
-            //await Clients.All.SendAsync("ReceiveProductNameByMinPrice", value9);
-
-            //var value10 = await _productService.ProductAvgPriceByHamburger();
-            //await Clients.All.SendAsync("ReceiveProductAvgPriceByHamburger", value10.ToString("0.00") + "₺");
+            var value10 = await _productService.ProductAvgPriceByHamburger();
+            await Clients.All.SendAsync("ReceiveProductAvgPriceByHamburger", value10.ToString("0.00") + "₺");
 
             //var value11 = await _orderService.TotalOrderCount();
             //await Clients.All.SendAsync("ReceiveTotalOrderCount", value11);
@@ -70,6 +68,9 @@ namespace SıgnalRProject.API.Hubs
 
             //var value16 = await _menuTableService.MenuTableCount();
             //await Clients.All.SendAsync("ReceiveMenuTableCount", value16);
+
+
+            
 
         }
     }

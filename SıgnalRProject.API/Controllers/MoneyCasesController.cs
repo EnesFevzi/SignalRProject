@@ -16,9 +16,9 @@ namespace SıgnalRProject.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult TotalMoneyCaseAmount()
+        public async Task<IActionResult> TotalMoneyCaseAmount()
         {
-            return Ok(_moneyCaseService.TotalMoneyCaseAmount());
+            return Ok(await _moneyCaseService.TotalMoneyCaseAmount());
         }
     }
 }

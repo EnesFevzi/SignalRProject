@@ -16,26 +16,26 @@ namespace SıgnalRProject.API.Controllers
         }
 
         [HttpGet("TotalOrderCount")]
-        public IActionResult TotalOrderCount()
+        public async Task <IActionResult> TotalOrderCount()
         {
-            return Ok(_orderService.TotalOrderCount());
+            return Ok(await _orderService.TotalOrderCount());
         }
 
         [HttpGet("ActiveOrderCount")]
-        public IActionResult ActiveOrderCount()
+        public async Task<IActionResult> ActiveOrderCount()
         {
-            return Ok(_orderService.ActiveOrderCount());
+            return Ok(await _orderService.ActiveOrderCount());
         }
 
         [HttpGet("LastOrderPrice")]
-        public IActionResult LastOrderPrice()
+        public async Task<IActionResult> LastOrderPrice()
         {
-            return Ok(_orderService.LastOrderPrice());
+            return Ok(await _orderService.LastOrderPrice());
         }
         [HttpGet("TodayTotalPrice")]
-        public IActionResult TodayTotalPrice()
+        public async Task<IActionResult> TodayTotalPrice()
         {
-            return Ok(_orderService.TodayTotalPrice());
+            return Ok(await _orderService.TodayTotalPrice());
         }
     }
 }

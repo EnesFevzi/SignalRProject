@@ -83,7 +83,9 @@ namespace SıgnalRProject.Service.Services.Concrete
 
         public async Task<decimal> TodayTotalPrice()
         {
-            return 0;
+            var orders = await unıtOfWork.GetRepository<Order>().GetAllAsync(x => x.OrderDate.Date == DateTime.Now.Date);
+            var result = orders.Sum(x => x.TotalPrice);
+            return result;
         }
 
         public async Task<int> TotalOrderCount()

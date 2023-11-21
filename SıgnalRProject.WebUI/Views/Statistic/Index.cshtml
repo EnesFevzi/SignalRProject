@@ -54,18 +54,17 @@
                 });
 
                
+                connection.on("ReceiveProductNameByMaxPrice", (value8) => {
+                    $("#productnamebymaxprice").text(value8);
+                });
 
-                // connection.on("ReceiveProductNameByMaxPrice", (value8) => {
-                //     $("#productnamebymaxprice").text(value8);
-                // });
+                connection.on("ReceiveProductNameByMinPrice", (value9) => {
+                    $("#productnamebyminprice").text(value9);
+                });
 
-                // connection.on("ReceiveProductNameByMinPrice", (value9) => {
-                //     $("#productnamebyminprice").text(value9);
-                // });
-
-                // connection.on("ReceiveProductAvgPriceByHamburger", (value10) => {
-                //     $("#productavgpricebyhamburger").text(value10);
-                // });
+                connection.on("ReceiveProductAvgPriceByHamburger", (value10) => {
+                    $("#productavgpricebyhamburger").text(value10);
+                });
 
                 // connection.on("ReceiveTotalOrderCount", (value11) => {
                 //     $("#totalordercount").text(value11);
