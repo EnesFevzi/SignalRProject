@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class MenuTable : EntityBase
+    public class MenuTable : IEntityBase
     {
         public int MenuTableID { get; set; }
         public string Name { get; set; }
+        public bool Status { get; set; }
      
         public List<Basket> Baskets { get; set; }
     }

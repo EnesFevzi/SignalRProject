@@ -54,24 +54,56 @@ namespace SıgnalRProject.API.Hubs
             var value10 = await _productService.ProductAvgPriceByHamburger();
             await Clients.All.SendAsync("ReceiveProductAvgPriceByHamburger", value10.ToString("0.00") + "₺");
 
-            //var value11 = await _orderService.TotalOrderCount();
-            //await Clients.All.SendAsync("ReceiveTotalOrderCount", value11);
+            var value11 = await _orderService.TotalOrderCount();
+            await Clients.All.SendAsync("ReceiveTotalOrderCount", value11);
 
-            //var value12 = await _orderService.ActiveOrderCount();
-            //await Clients.All.SendAsync("ReceiveActiveOrderCount", value12);
+            var value12 = await _orderService.ActiveOrderCount();
+            await Clients.All.SendAsync("ReceiveActiveOrderCount", value12);
 
-            //var value13 = await _orderService.LastOrderPrice();
-            //await Clients.All.SendAsync("ReceiveLastOrderPrice", value13.ToString("0.00") + "₺");
+            var value13 = await _orderService.LastOrderPrice();
+            await Clients.All.SendAsync("ReceiveLastOrderPrice", value13.ToString("0.00") + "₺");
 
-            //var value14 = await _moneyCaseService.TotalMoneyCaseAmount();
-            //await Clients.All.SendAsync("ReceiveTotalMoneyCaseAmount", value14.ToString("0.00") + "₺");
+            var value14 = await _moneyCaseService.TotalMoneyCaseAmount();
+            await Clients.All.SendAsync("ReceiveTotalMoneyCaseAmount", value14.ToString("0.00") + "₺");
 
-            //var value16 = await _menuTableService.MenuTableCount();
-            //await Clients.All.SendAsync("ReceiveMenuTableCount", value16);
+            var value16 = await _menuTableService.MenuTableCount();
+            await Clients.All.SendAsync("ReceiveMenuTableCount", value16);
 
+        }
+        public async Task SendProgress()
+        {
+            var value = await _moneyCaseService.TotalMoneyCaseAmount();
+            await Clients.All.SendAsync("ReceiveTotalMoneyCaseAmount", value.ToString("0.00") + "₺");
 
-            
+            var value2 = await _orderService.ActiveOrderCount();
+            await Clients.All.SendAsync("ReceiveTActiveOrderCount", value2);
 
+            var value3 = await _menuTableService.MenuTableCount();
+            await Clients.All.SendAsync("ReceiveMenuTableCount", value3);
+
+            var value5 = await _productService.ProductPriceAvg();
+            await Clients.All.SendAsync("ReceiveProductPriceAvg", value5);
+
+            var value6 = await _productService.ProductAvgPriceByHamburger();
+            await Clients.All.SendAsync("ReceiveAvgPriceByHamburger", value6);
+
+            var value7 = await _productService.ProductCountByCategoryNameDrink();
+            await Clients.All.SendAsync("ReceiveProductCountByCategoryNameDrink", value7);
+
+            var value8 = await _orderService.TotalOrderCount();
+            await Clients.All.SendAsync("ReceiveTotalOrderCount", value8);
+
+            var value9 = await _productService.ProductPriceBySteakBurger();
+            await Clients.All.SendAsync("ReceiveProductPriceBySteakBurger", value9);
+
+            var value10 = await _productService.TotalPriceByDrinkCategory();
+            await Clients.All.SendAsync("ReceiveTotalPriceByDrinkCategory", value10);
+
+            var value11 = await _productService.TotalPriceBySaladCategory();
+            await Clients.All.SendAsync("ReceiveTotalPriceBySaladCategory", value11);
+
+            var value12 = await _productService.ProductPriceAvg();
+            await Clients.All.SendAsync("ReceiveProductPriceAvg", value12.ToString("0.00") + "₺");
         }
     }
 }

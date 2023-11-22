@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SıgnalRProject.DataAccess.Context;
 
@@ -11,9 +12,10 @@ using SıgnalRProject.DataAccess.Context;
 namespace SıgnalRProject.DataAccess.Migrations
 {
     [DbContext(typeof(SıgnalRContext))]
-    partial class SıgnalRContextModelSnapshot : ModelSnapshot
+    [Migration("20231122202622_initial4")]
+    partial class initial4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

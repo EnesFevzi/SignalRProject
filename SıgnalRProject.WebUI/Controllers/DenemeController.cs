@@ -2,12 +2,11 @@
 
 namespace SıgnalRProject.WebUI.Controllers
 {
-    public class StatisticController : Controller
+    public class DenemeController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
-		
-	}
+    }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class Contact : EntityBase
+    public class Contact : IEntityBase
     {
         public int ContactID { get; set; }
         public string Location { get; set; }

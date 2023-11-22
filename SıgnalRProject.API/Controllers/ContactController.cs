@@ -21,30 +21,30 @@ namespace SıgnalRProject.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult ContactList()
+        public async Task<IActionResult> ContactList()
         {
-            var contacts = _contactService.GetAllAsync();
+            var contacts = await _contactService.GetAllAsync();
             var value = _mapper.Map<List<ResultContactDto>>(contacts);
             return Ok(value);
         }
         [HttpPost]
-        public async Task< IActionResult> CreateContact(CreateContactDto createContactDto)
+        public async Task<IActionResult> CreateContact(CreateContactDto createContactDto)
         {
             var map = _mapper.Map<Contact>(createContactDto);
             await _contactService.AddAsync(map);
             return Ok("İletişim Bilgisi Eklendi");
         }
         [HttpDelete("{id}")]
-        public async Task< IActionResult> DeleteContact(int id)
+        public async Task<IActionResult> DeleteContact(int id)
         {
-            var value =await _contactService.GetByIDAsync(id);
+            var value = await _contactService.GetByIDAsync(id);
             await _contactService.DeleteAsync(value);
             return Ok("İletişim Bilgisi Silindi");
         }
         [HttpGet("{id}")]
-        public IActionResult GetContact(int id)
+        public async Task<IActionResult> GetContact(int id)
         {
-            var value = _contactService.GetByIDAsync(id);
+            var value =await _contactService.GetByIDAsync(id);
             return Ok(value);
         }
         [HttpPut]
