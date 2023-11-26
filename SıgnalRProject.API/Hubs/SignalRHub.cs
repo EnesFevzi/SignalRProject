@@ -22,6 +22,7 @@ namespace SıgnalRProject.API.Hubs
             _bookingService = bookingService;
             _notificationService = notificationService;
         }
+        public static int clientCount { get; set; } = 0;
         public async Task SendStatistic()
         {
             var value =await _categoryService.CategoryCount();
@@ -104,6 +105,40 @@ namespace SıgnalRProject.API.Hubs
 
             var value12 = await _productService.ProductPriceAvg();
             await Clients.All.SendAsync("ReceiveProductPriceAvg", value12.ToString("0.00") + "₺");
+        }
+        public async Task GetBookingList()
+        {
+            var values = await _bookingService.GetAllAsync();
+            await Clients.All.SendAsync("ReceiveBookingList", values);
+        }
+        public async Task SendNotification()
+        {
+            var value = await _notificationService.NotificationCountByStatusFalse();
+            await Clients.All.SendAsync("ReceiveNotificationCountByFalse", value);
+
+            var notificationListByFalse =await _notificationService.GetAllNotificationByFalse();
+            await Clients.All.SendAsync("ReceiveNotificationListByFalse", notificationListByFalse);
+        }
+        public async Task GetMenuTableStatus()
+        {
+            var value =await _menuTableService.GetAllAsync();
+            await Clients.All.SendAsync("ReceiveMenuTableStatus", value);
+        }
+        public async Task SendMessage(string user, string message)
+        {
+            await Clients.All.SendAsync("ReceiveMessage", user, message);
+        }
+        public override async Task OnConnectedAsync()
+        {
+            clientCount++;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnConnectedAsync();
+        }
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            clientCount--;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnDisconnectedAsync(exception);
         }
     }
 }

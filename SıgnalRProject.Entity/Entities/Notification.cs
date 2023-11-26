@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class Notification : EntityBase
+    public class Notification : IEntityBase
     {
         public int NotificationID { get; set; }
         public string Type { get; set; }

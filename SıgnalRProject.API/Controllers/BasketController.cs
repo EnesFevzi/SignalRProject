@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SıgnalRProject.DataAccess.Context;
+using SıgnalRProject.DataAccess.UnıtOfWorks;
 using SıgnalRProject.Dto.BasketDto;
 using SıgnalRProject.Entity.Entities;
 using SıgnalRProject.Service.Services.Abstract;
@@ -12,11 +14,16 @@ namespace SıgnalRProject.API.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketService _basketService;
+        private readonly IUnıtOfWork unıtOfWork;
+
+        private readonly SıgnalRContext _context;
         private readonly IMapper _mapper;
 
-        public BasketController(IBasketService basketService, IMapper mapper)
+        public BasketController(IBasketService basketService, IUnıtOfWork unıtOfWork, SıgnalRContext context, IMapper mapper)
         {
             _basketService = basketService;
+            this.unıtOfWork = unıtOfWork;
+            _context = context;
             _mapper = mapper;
         }
 
@@ -33,19 +40,19 @@ namespace SıgnalRProject.API.Controllers
             return Ok(values);
         }
         [HttpPost]
-        public IActionResult CreateBasket(CreateBasketDto createBasketDto)
+        public async Task< IActionResult> CreateBasket(CreateBasketDto createBasketDto)
         {
-            ////Bahçe 01 --> 45
-            //using var context = new SignalRContext();
-            //_basketService.TAdd(new Basket()
-            //{
-            //    ProductID = createBasketDto.ProductID,
-            //    Count = 1,
-            //    MenuTableID = 4,
-            //    Price = context.Products.Where(x => x.ProductID == createBasketDto.ProductID).Select(y => y.Price).FirstOrDefault(),
-            //    TotalPrice = 0
-            //});
-            return Ok();
+            Basket basket= new Basket()
+            {
+                ProductID = createBasketDto.ProductID,
+                Count = 1,
+                MenuTableID = 3,
+                Price = _context.Products.Where(x => x.ProductID == createBasketDto.ProductID).Select(y => y.Price).FirstOrDefault(),
+                TotalPrice = 0
+            };
+            await _basketService.AddAsync(basket);
+           // await _basketService.AddAsync(basket);
+            return Ok(basket);
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBasket(int id)

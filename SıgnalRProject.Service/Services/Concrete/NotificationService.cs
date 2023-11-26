@@ -15,6 +15,8 @@ namespace SıgnalRProject.Service.Services.Concrete
         }
         public async Task<Notification> AddAsync(Notification entity)
         {
+            entity.Type = "notif-icon notif-success";
+            entity.Icon = "la la-user-plus";
             await unıtOfWork.GetRepository<Notification>().AddAsync(entity);
             await unıtOfWork.SaveAsync();
             return entity;

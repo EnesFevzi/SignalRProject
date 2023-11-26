@@ -29,12 +29,21 @@ namespace SıgnalRProject.API.Controllers
             var map = _mapper.Map<List<ResultBookingDto>>(values);
             return Ok(map);
         }
-        [HttpPost]
+        [HttpPost("CreateBooking")]
         public async Task<IActionResult> CreateBooking(CreateBookingDto createBookingDto)
         {
-            var map = _mapper.Map<Booking>(createBookingDto);
-           await _bookingService.AddAsync(map);
-            return Ok("Rezervasyon Yapıldı");
+            try
+            {
+                var map = _mapper.Map<Booking>(createBookingDto);
+                await _bookingService.AddAsync(map);
+
+                return Ok(new { success = true, message = "Rezervasyon Yapıldı" });
+            }
+            catch (Exception ex)
+            {
+                // Hata durumunda
+                return BadRequest(new { success = false, message = ex.Message });
+            }
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBooking(int id)

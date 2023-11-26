@@ -1,0 +1,126 @@
+﻿@model CreateBookingDto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<partial name="_UILayoutPartial/_UILayoutHeadPartial"></partial>
+
+<body class="sub_page">
+
+    <partial name="_MenuNavbarPartial"></partial>
+
+    <section class="book_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Rezervasyon Oluşturun
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form_container">
+                        <form method="post" id="reservationForm">
+                            <div>
+                                <input type="text" class="form-control" id="name" placeholder="Adınız Soyadınız" asp-for="Name" />
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" id="phone" placeholder="Telefon Numaranız" asp-for="Phone" />
+                            </div>
+                            <div>
+                                <input type="email" class="form-control" id="mail" placeholder="Mail Adresiniz" asp-for="Mail" />
+                            </div>
+                            <div>
+                                <select asp-for="PersonCount" id="personcount" class="form-control nice-select wide">
+                                    <option value="" disabled selected>
+                                        Kaç Kişisiziniz?
+                                    </option>
+                                    <option value="1">
+                                        1
+                                    </option>
+                                    <option value="2">
+                                        2
+                                    </option>
+                                    <option value="3">
+                                        3
+                                    </option>
+                                    <option value="4">
+                                        4
+                                    </option>
+                                    <option value="5">
+                                        5
+                                    </option>
+                                    <option value="6">
+                                        6++
+                                    </option>
+                                </select>
+                            </div>
+                            <div>
+                                <input type="date" id="date" class="form-control" asp-for="Date">
+                            </div>
+                            <div class="btn_box">
+                                <button id="sendReservationButton">
+                                    Yerinizi Ayırtın
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map_container ">
+                        <div id="googleMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @await Component.InvokeAsync("_UILayoutFooter")
+
+    <partial name="_UILayoutPartial/_UILayoutScriptPartial"></partial>
+
+</body>
+
+</html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#sendReservationButton").click(function (e) {
+            e.preventDefault();
+
+            var formData = {
+                Name: $("#name").val(),
+                Phone: $("#phone").val(),
+                Mail: $("#mail").val(),
+                PersonCount: $("#personcount").val(),
+                Date: $("#date").val()
+            };
+            $.ajax({
+                url: "https://localhost:7024/api/Booking/CreateBooking",
+                type: "POST",
+                data: JSON.stringify(formData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    if (result.success) {
+                        alert("Rezervasyon başarıyla Alındı!");
+                        $("#reservationForm")[0].reset();
+                    } else {
+                        alert("Rezervasyon işlemi başarısız oldu: " + result.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log("Durum Kodu: " + xhr.status);
+                    console.log("Hata: " + error);
+                    alert("İşlem Başarısız Olmuştur");
+                }
+            });
+        });
+    });
+
+
+</script>

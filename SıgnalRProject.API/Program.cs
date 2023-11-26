@@ -3,6 +3,7 @@ using SıgnalRProject.API.Hubs;
 using SıgnalRProject.DataAccess.Extensions;
 using SıgnalRProject.Service.Extensions;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 namespace SıgnalRProject.API
 {
@@ -32,8 +33,10 @@ namespace SıgnalRProject.API
 					.AllowCredentials();
 				});
 			});
+            builder.Services.AddControllersWithViews()
+            .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-			var app = builder.Build();
+            var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
