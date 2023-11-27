@@ -3,10 +3,11 @@ body {
 }
 .page-content {
 	width: 100%;
-	margin:  0 auto;
-	background-image: -moz-linear-gradient( 136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%);
-    background-image: -webkit-linear-gradient( 136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%);
-    background-image: -ms-linear-gradient( 136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%);
+	margin: 0 auto;
+	/*background-image: -moz-linear-gradient(136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%);
+	background-image: -webkit-linear-gradient(136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%);
+	background-image: -ms-linear-gradient(136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%);*/
+	background: linear-gradient(136deg, #4a0000 0%, #a52a2a 100%);
 	display: flex;
 	display: -webkit-flex;
 	justify-content: center;

@@ -1,0 +1,61 @@
+﻿@model RegisterDto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SignalR Restoran Kayıt</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Font-->
+    <link rel="stylesheet" type="text/css" href="~/colorlib-regform-32/css/nunito-font.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="~/colorlib-regform-32/css/style.css" />
+</head>
+<body class="form-v6">
+    <div class="page-content">
+        <div class="form-v6-content">
+            <div class="form-left">
+                <img src="~/colorlib-regform-32/images/Sauce1.jpg" alt="form" style="width:484px; height:584px">
+            </div>
+            <form class="form-detail" asp-action="Register" asp-controller="Auth" method="post">
+                <h2>Yeni Kullanıcı Kaydı</h2>
+                <div class="form-row">
+                    <input type="text" id="full-name" asp-for="Name" class="input-text" placeholder="Adınız" required>
+                    <span asp-validation-for="Name" class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+                <div class="form-row">
+                    <input type="text" id="full-name" class="input-text" placeholder="Soyadınız" required asp-for="Surname">
+                    <span asp-validation-for="Surname" class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+                <div class="form-row">
+                    <input type="text" id="your-email" class="input-text" placeholder="Email Adresiniz" asp-for="Mail" required pattern="[^@@]+@@[^@@]+.[a-zA-Z]{2,6}">
+                    <span asp-validation-for="Mail" class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+                <div class="form-row">
+                    <input type="password" id="password" class="input-text" placeholder="Şifreniz" asp-for="Password" required>
+                    <span asp-validation-for="Password" class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+                <div class="form-row">
+                    <input type="password" id="password" class="input-text" placeholder="Şifre Tekrarı" asp-for="ConfirmPassword" required>
+                    <span asp-validation-for="ConfirmPassword" class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+                <button class="btn btn-primary" style="background-color: #3498db; color: #fff; border: none;">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .btn-primary {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 15px 20px; /* Bu satır, butonun yüksekliği ve genişliğini belirler */
+        font-size: 16px; /* Bu satır, butonun metin boyutunu belirler */
+    }
+</style>
