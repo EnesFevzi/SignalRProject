@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class Message : EntityBase
+    public class Message : IEntityBase
     {
         public int MessageID { get; set; }
         public string NameSurname { get; set; }
@@ -16,6 +16,7 @@ namespace SıgnalRProject.Entity.Entities
         public string Subject { get; set; }
         public string MessageContent { get; set; }
         public DateTime MessageSendDate { get; set; }
+        public bool Status { get; set; }
       
     }
 }
