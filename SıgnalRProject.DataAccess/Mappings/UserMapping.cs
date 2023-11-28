@@ -17,7 +17,7 @@ namespace SıgnalRProject.DataAccess.Mappings
 
             var superadmin = new AppUser
             {
-                Id = 1,
+                Id = 2,
                 UserName = "superadmin@gmail.com",
                 NormalizedUserName = "SUPERADMIN@GMAIL.COM",
                 Email = "superadmin@gmail.com",

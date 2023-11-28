@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using SıgnalRProject.Dto.AboutDto;
+using SıgnalRProject.WebUI.DTOs.AboutDto;
 using System.Text;
 
 namespace SıgnalRProject.WebUI.Controllers
 {
+    [Authorize]
     public class AboutController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -12,6 +14,7 @@ namespace SıgnalRProject.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
+        
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SıgnalRProject.WebUI.DTOs.BasketDto;
 using SıgnalRProject.WebUI.DTOs.ProductDto;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace SıgnalRProject.WebUI.Controllers
 {
+    [Authorize]
     public class MenuController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

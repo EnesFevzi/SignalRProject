@@ -1,0 +1,31 @@
+﻿<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">QR Kod İşlemleri</h4>
+                        <form method="post" asp-action="Index" asp-controller="QRCode">
+                            <div class="form-group">
+                                <label for="qrValue">QR Kod Değeri:</label>
+                                <input type="text" id="qrValue" name="value" class="form-control" />
+                            </div>
+                            <button type="submit" class="btn btn-warning">QR Kod Oluştur</button>
+                        </form>
+                        <br />
+                        @if (ViewBag.QrCodeImage != null)
+                        {
+                            <div class="text-center mt-4">
+                                <img src="@ViewBag.QrCodeImage" alt="QR Kod" class="img-fluid" style="max-width: 400px; max-height: 400px;" />
+                            </div>
+                        }
+
+                        <div class="mt-4">
+                            <a asp-action="DecodeQRCode" asp-controller="QRCode" class="btn btn-outline-danger">QR Kodu Oku</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

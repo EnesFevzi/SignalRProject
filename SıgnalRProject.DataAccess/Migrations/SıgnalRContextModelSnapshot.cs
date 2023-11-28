@@ -275,6 +275,27 @@ namespace SıgnalRProject.DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 2,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "ed852fbc-e277-4a7b-9e72-fbd4a7bdfdfe",
+                            Email = "superadmin@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            Name = "Super",
+                            NormalizedEmail = "SUPERADMIN@GMAIL.COM",
+                            NormalizedUserName = "SUPERADMIN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHJIKYY39kxS9Pf+f8mTyKaY3tow4z3GKiGFrifd49OoDwHwPvVC75oZMvNYHtByvg==",
+                            PhoneNumber = "+905439999999",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "6340eebe-5b53-4f1a-99a5-e3fc42f42034",
+                            Surname = "Admin",
+                            TwoFactorEnabled = false,
+                            UserName = "superadmin@gmail.com"
+                        });
                 });
 
             modelBuilder.Entity("SıgnalRProject.Entity.Entities.Basket", b =>
@@ -425,6 +446,48 @@ namespace SıgnalRProject.DataAccess.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            CategoryName = "Hamburgerler",
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1203),
+                            IsDeleted = false,
+                            Status = false
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            CategoryName = "Makarnalar",
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1213),
+                            IsDeleted = false,
+                            Status = false
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            CategoryName = "Salatalar",
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1214),
+                            IsDeleted = false,
+                            Status = false
+                        },
+                        new
+                        {
+                            CategoryID = 4,
+                            CategoryName = "İçecekler",
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1215),
+                            IsDeleted = false,
+                            Status = false
+                        },
+                        new
+                        {
+                            CategoryID = 5,
+                            CategoryName = "Pizzalar",
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1215),
+                            IsDeleted = false,
+                            Status = false
+                        });
                 });
 
             modelBuilder.Entity("SıgnalRProject.Entity.Entities.Contact", b =>
@@ -611,21 +674,6 @@ namespace SıgnalRProject.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageID"), 1L, 1);
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeletedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Mail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -637,12 +685,6 @@ namespace SıgnalRProject.DataAccess.Migrations
                     b.Property<DateTime>("MessageSendDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("NameSurname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -650,6 +692,9 @@ namespace SıgnalRProject.DataAccess.Migrations
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Subject")
                         .IsRequired()
@@ -860,6 +905,162 @@ namespace SıgnalRProject.DataAccess.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductID = 1,
+                            CategoryID = 1,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1377),
+                            Description = "Lezzetli bir classic burger",
+                            ImageUrl = "/images/burger-images/burger.jpg",
+                            IsDeleted = false,
+                            Price = 20.99m,
+                            ProductName = "Classic Burger"
+                        },
+                        new
+                        {
+                            ProductID = 2,
+                            CategoryID = 1,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1381),
+                            Description = "İki katlı lezzetli bir cheeseburger",
+                            ImageUrl = "/images/burger-images/double-cheeseburger.jpg",
+                            IsDeleted = false,
+                            Price = 25.99m,
+                            ProductName = "Double Cheeseburger"
+                        },
+                        new
+                        {
+                            ProductID = 3,
+                            CategoryID = 1,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1382),
+                            Description = "Bacon ve avokado ile zenginleştirilmiş burger",
+                            ImageUrl = "/images/burger-images/bacon-avocado-burger.jpg",
+                            IsDeleted = false,
+                            Price = 23.50m,
+                            ProductName = "Bacon Avocado Burger"
+                        },
+                        new
+                        {
+                            ProductID = 4,
+                            CategoryID = 1,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1383),
+                            Description = "Mantar ve Swiss peyniri ile lezzetlendirilmiş burger",
+                            ImageUrl = "/images/burger-images/mushroom-swiss-burger.jpg",
+                            IsDeleted = false,
+                            Price = 21.75m,
+                            ProductName = "Mushroom Swiss Burger"
+                        },
+                        new
+                        {
+                            ProductID = 5,
+                            CategoryID = 1,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1384),
+                            Description = "Barbekü sosu ve ranch soslu nefis bir burger",
+                            ImageUrl = "/images/burger-images/bbq-ranch-burger.jpg",
+                            IsDeleted = false,
+                            Price = 22.99m,
+                            ProductName = "BBQ Ranch Burger"
+                        },
+                        new
+                        {
+                            ProductID = 6,
+                            CategoryID = 1,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1385),
+                            Description = "Vegan ve et içermeyen bir lezzet deneyimi",
+                            ImageUrl = "/images/burger-images/vegan-beyond-burger.jpg",
+                            IsDeleted = false,
+                            Price = 19.50m,
+                            ProductName = "Vegan Beyond Burger"
+                        },
+                        new
+                        {
+                            ProductID = 7,
+                            CategoryID = 2,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1386),
+                            Description = "İtalyan usulü kıymalı makarna",
+                            ImageUrl = "/images/makarna-images/spaghetti.jpg",
+                            IsDeleted = false,
+                            Price = 18.50m,
+                            ProductName = "Spaghetti Bolognese"
+                        },
+                        new
+                        {
+                            ProductID = 8,
+                            CategoryID = 3,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1387),
+                            Description = "Lezzetli bir Cobb salata",
+                            ImageUrl = "/images/salata-images/cobb-salad.jpg",
+                            IsDeleted = false,
+                            Price = 12.75m,
+                            ProductName = "Cobb Salata"
+                        },
+                        new
+                        {
+                            ProductID = 9,
+                            CategoryID = 4,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1388),
+                            Description = "Soğuk ve serinletici kola",
+                            ImageUrl = "/images/icecek-images/cola.png",
+                            IsDeleted = false,
+                            Price = 3.99m,
+                            ProductName = "Cola"
+                        },
+                        new
+                        {
+                            ProductID = 10,
+                            CategoryID = 5,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1389),
+                            Description = "Sade ve lezzetli bir margarita pizza",
+                            ImageUrl = "/images/pizza-images/margarita-pizza.png",
+                            IsDeleted = false,
+                            Price = 22.50m,
+                            ProductName = "Margarita Pizza"
+                        },
+                        new
+                        {
+                            ProductID = 11,
+                            CategoryID = 2,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1389),
+                            Description = "Tavuklu Alfredo makarna",
+                            ImageUrl = "/images/makarna-images/chicken-alfredo-pasta.jpg",
+                            IsDeleted = false,
+                            Price = 24.99m,
+                            ProductName = "Chicken Alfredo Pasta"
+                        },
+                        new
+                        {
+                            ProductID = 12,
+                            CategoryID = 4,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1390),
+                            Description = "Taze limonata içimi",
+                            ImageUrl = "/images/icecek-images/lemonade.jpg",
+                            IsDeleted = false,
+                            Price = 5.99m,
+                            ProductName = "Lemonade"
+                        },
+                        new
+                        {
+                            ProductID = 13,
+                            CategoryID = 5,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1391),
+                            Description = "Pepperoni ile zenginleştirilmiş pizza",
+                            ImageUrl = "/images/pizza-images/pepperoni-pizza.jpg",
+                            IsDeleted = false,
+                            Price = 23.25m,
+                            ProductName = "Pepperoni Pizza"
+                        },
+                        new
+                        {
+                            ProductID = 14,
+                            CategoryID = 2,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1392),
+                            Description = "Karidesli İtalyan makarna",
+                            ImageUrl = "/images/makarna-images/shrimp-scampi.jpg",
+                            IsDeleted = false,
+                            Price = 27.50m,
+                            ProductName = "Shrimp Scampi"
+                        });
                 });
 
             modelBuilder.Entity("SıgnalRProject.Entity.Entities.Slider", b =>
@@ -918,6 +1119,20 @@ namespace SıgnalRProject.DataAccess.Migrations
                     b.HasKey("SliderID");
 
                     b.ToTable("Sliders");
+
+                    b.HasData(
+                        new
+                        {
+                            SliderID = 1,
+                            CreatedDate = new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1520),
+                            Description1 = "En lezzetli İtalyan pizzaları ile tanışın!",
+                            Description2 = "Sağlığınız için özenle hazırlanan sağlıklı salatalarımızı deneyin!",
+                            Description3 = "Lezzetli tatlılarımızla tatlı bir mola verin!",
+                            IsDeleted = false,
+                            Title1 = "İtalyan Pizzalar",
+                            Title2 = "Sağlıklı Salatalar",
+                            Title3 = "Tatlı Molası"
+                        });
                 });
 
             modelBuilder.Entity("SıgnalRProject.Entity.Entities.SocialMedia", b =>

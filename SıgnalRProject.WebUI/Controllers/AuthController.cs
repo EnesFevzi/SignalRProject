@@ -64,8 +64,9 @@ namespace SıgnalRProject.WebUI.Controllers
             return View();
         }
 
-
+        [AllowAnonymous]
         [HttpGet]
+
         public IActionResult Login()
         {
 

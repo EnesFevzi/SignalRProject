@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SıgnalRProject.Entity.Entities;
 using SıgnalRProject.WebUI.DTOs.CategoriesDto;
@@ -7,7 +8,8 @@ using System.Text;
 
 namespace SıgnalRProject.WebUI.Controllers
 {
-	public class ProductController : Controller
+    [Authorize]
+    public class ProductController : Controller
 	{
 		private const string link = "https://localhost:7024/api";
 

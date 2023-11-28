@@ -106,6 +106,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                     CategoryID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -132,14 +133,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                     FooterDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OpenDays = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OpenDaysDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OpenHours = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    OpenHours = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -156,6 +150,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                     Amount = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -201,13 +196,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                     MenuTableID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -226,13 +215,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                     Subject = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MessageContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MessageSendDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -262,13 +245,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                     Icon = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -574,6 +551,49 @@ namespace SıgnalRProject.DataAccess.Migrations
                         principalTable: "Products",
                         principalColumn: "ProductID",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Surname", "TwoFactorEnabled", "UserName" },
+                values: new object[] { 2, 0, "ed852fbc-e277-4a7b-9e72-fbd4a7bdfdfe", "superadmin@gmail.com", true, false, null, "Super", "SUPERADMIN@GMAIL.COM", "SUPERADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEHJIKYY39kxS9Pf+f8mTyKaY3tow4z3GKiGFrifd49OoDwHwPvVC75oZMvNYHtByvg==", "+905439999999", true, "6340eebe-5b53-4f1a-99a5-e3fc42f42034", "Admin", false, "superadmin@gmail.com" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryID", "CategoryName", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "IsDeleted", "ModifiedBy", "ModifiedDate", "Status" },
+                values: new object[,]
+                {
+                    { 1, "Hamburgerler", null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1203), null, null, false, null, null, false },
+                    { 2, "Makarnalar", null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1213), null, null, false, null, null, false },
+                    { 3, "Salatalar", null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1214), null, null, false, null, null, false },
+                    { 4, "İçecekler", null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1215), null, null, false, null, null, false },
+                    { 5, "Pizzalar", null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1215), null, null, false, null, null, false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sliders",
+                columns: new[] { "SliderID", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "Description1", "Description2", "Description3", "IsDeleted", "ModifiedBy", "ModifiedDate", "Title1", "Title2", "Title3" },
+                values: new object[] { 1, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1520), null, null, "En lezzetli İtalyan pizzaları ile tanışın!", "Sağlığınız için özenle hazırlanan sağlıklı salatalarımızı deneyin!", "Lezzetli tatlılarımızla tatlı bir mola verin!", false, null, null, "İtalyan Pizzalar", "Sağlıklı Salatalar", "Tatlı Molası" });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductID", "CategoryID", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "Description", "ImageUrl", "IsDeleted", "ModifiedBy", "ModifiedDate", "Price", "ProductName" },
+                values: new object[,]
+                {
+                    { 1, 1, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1377), null, null, "Lezzetli bir classic burger", "/images/burger-images/burger.jpg", false, null, null, 20.99m, "Classic Burger" },
+                    { 2, 1, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1381), null, null, "İki katlı lezzetli bir cheeseburger", "/images/burger-images/double-cheeseburger.jpg", false, null, null, 25.99m, "Double Cheeseburger" },
+                    { 3, 1, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1382), null, null, "Bacon ve avokado ile zenginleştirilmiş burger", "/images/burger-images/bacon-avocado-burger.jpg", false, null, null, 23.50m, "Bacon Avocado Burger" },
+                    { 4, 1, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1383), null, null, "Mantar ve Swiss peyniri ile lezzetlendirilmiş burger", "/images/burger-images/mushroom-swiss-burger.jpg", false, null, null, 21.75m, "Mushroom Swiss Burger" },
+                    { 5, 1, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1384), null, null, "Barbekü sosu ve ranch soslu nefis bir burger", "/images/burger-images/bbq-ranch-burger.jpg", false, null, null, 22.99m, "BBQ Ranch Burger" },
+                    { 6, 1, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1385), null, null, "Vegan ve et içermeyen bir lezzet deneyimi", "/images/burger-images/vegan-beyond-burger.jpg", false, null, null, 19.50m, "Vegan Beyond Burger" },
+                    { 7, 2, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1386), null, null, "İtalyan usulü kıymalı makarna", "/images/makarna-images/spaghetti.jpg", false, null, null, 18.50m, "Spaghetti Bolognese" },
+                    { 8, 3, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1387), null, null, "Lezzetli bir Cobb salata", "/images/salata-images/cobb-salad.jpg", false, null, null, 12.75m, "Cobb Salata" },
+                    { 9, 4, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1388), null, null, "Soğuk ve serinletici kola", "/images/icecek-images/cola.png", false, null, null, 3.99m, "Cola" },
+                    { 10, 5, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1389), null, null, "Sade ve lezzetli bir margarita pizza", "/images/pizza-images/margarita-pizza.png", false, null, null, 22.50m, "Margarita Pizza" },
+                    { 11, 2, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1389), null, null, "Tavuklu Alfredo makarna", "/images/makarna-images/chicken-alfredo-pasta.jpg", false, null, null, 24.99m, "Chicken Alfredo Pasta" },
+                    { 12, 4, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1390), null, null, "Taze limonata içimi", "/images/icecek-images/lemonade.jpg", false, null, null, 5.99m, "Lemonade" },
+                    { 13, 5, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1391), null, null, "Pepperoni ile zenginleştirilmiş pizza", "/images/pizza-images/pepperoni-pizza.jpg", false, null, null, 23.25m, "Pepperoni Pizza" },
+                    { 14, 2, null, new DateTime(2023, 11, 28, 22, 21, 46, 513, DateTimeKind.Local).AddTicks(1392), null, null, "Karidesli İtalyan makarna", "/images/makarna-images/shrimp-scampi.jpg", false, null, null, 27.50m, "Shrimp Scampi" }
                 });
 
             migrationBuilder.CreateIndex(

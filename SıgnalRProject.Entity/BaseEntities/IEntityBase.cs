@@ -8,5 +8,6 @@ namespace SıgnalRProject.Entity.BaseEntities
 {
     public interface IEntityBase
     {
+
     }
 }

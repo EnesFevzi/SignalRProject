@@ -1,0 +1,30 @@
+﻿@model string
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">QR Kod Çözme</h4>
+                        <form method="post" enctype="multipart/form-data" asp-action="DecodeQRCode" asp-controller="QRCode">
+                            <div class="form-group">
+                                <label for="qrImage">QR Kod Resmi Yükle:</label>
+                                <input type="file" id="qrImage" name="qrImage" class="form-control-file" />
+                            </div>
+                            <button type="submit" class="btn btn-warning">QR Kodu Çöz</button>
+                        </form>
+                        <br />
+                        @if (!string.IsNullOrEmpty(Model))
+                        {
+                            <div class="mt-4">
+                                <h5>Çözülen QR Kod Değeri:</h5>
+                                <p>@Model</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

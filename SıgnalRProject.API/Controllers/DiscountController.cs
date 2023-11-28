@@ -43,7 +43,7 @@ namespace SıgnalRProject.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDiscount(int id)
         {
-            var value = _discountService.GetByIDAsync(id);
+            var value = await _discountService.GetByIDAsync(id);
             return Ok(value);
         }
         [HttpPut]

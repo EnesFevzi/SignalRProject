@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SıgnalRProject.Dto.MessageDto;
@@ -12,28 +13,45 @@ namespace SıgnalRProject.API.Controllers
     public class MessageController : ControllerBase
     {
         private readonly IMessageService _messageService;
+        private readonly IValidator<CreateMessageDto> validator;
         private readonly IMapper _mapper;
 
-        public MessageController(IMessageService messageService, IMapper mapper)
-        {
-            _messageService = messageService;
-            _mapper = mapper;
-        }
+		public MessageController(IMessageService messageService, IValidator<CreateMessageDto> validator, IMapper mapper)
+		{
+			_messageService = messageService;
+			this.validator = validator;
+			_mapper = mapper;
+		}
 
-        [HttpGet]
+		[HttpGet]
         public async Task<IActionResult> MessageList()
         {
             var values = await _messageService.GetAllAsync();
             return Ok(values);
         }
-        [HttpPost]
+        [HttpPost("CreateMessage")]
         public async Task<IActionResult> CreateMessage(CreateMessageDto createMessageDto)
         {
-            var map = _mapper.Map<Message>(createMessageDto);
-            map.Status = false;
-            map.MessageSendDate = DateTime.Now;
-            await _messageService.AddAsync(map);
-            return Ok("Mesaj Başarılı Bir Şekilde Gönderildi");
+            var result = validator.Validate(createMessageDto);
+			if (!result.IsValid)
+			{
+				return BadRequest(result);
+			}
+			try
+            {
+				var map = _mapper.Map<Message>(createMessageDto);
+				map.Status = false;
+				map.MessageSendDate = DateTime.Now;
+				await _messageService.AddAsync(map);
+				return Ok(new { success = true, message = "Rezervasyon Yapıldı" });
+			}
+            catch (Exception ex)
+            {
+
+				return BadRequest(new { success = false, message = ex.Message });
+			}
+
+           
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMessage(int id)

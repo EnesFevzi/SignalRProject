@@ -36,8 +36,11 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="map_container ">
-                    <div id="googleMap"></div>
+                <div class="map_container">
+                    <div id="">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48056.91472305835!2d27.764311033965804!3d41.16601322491123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b4dd92e238353d%3A0x522f14d777b250a6!2zw4dvcmx1LCBUZWtpcmRhxJ8!5e0!3m2!1str!2str!4v1701184791195!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -57,26 +60,32 @@
                 Phone: $("#phone").val(),
                 Mail: $("#mail").val(),
                 Subject: $("#subject").val(),
-                MessageContent: $("#messagecontent").val()
+                MessageContent: $("#messagecontent").val(),
             };
+
             $.ajax({
-                url: "https://localhost:7024/api/Message",
+                url: "https://localhost:7024/api/Message/CreateMessage",
                 type: "POST",
-                data: formData,
+                contentType: "application/json",  // Content-Type başlığı
+                data: JSON.stringify(formData),   // JSON içeriğe dönüştürme
                 success: function (result) {
                     if (result.success) {
                         alert("E-posta başarıyla gönderildi!");
-                        $("#namesurname, #mail,#phone, #subject, #messagecontent").val("");
+                        $("#namesurname, #mail, #phone, #subject, #messagecontent").val("");
                     } else {
                         alert("E-posta gönderme işlemi başarısız oldu: " + result.message);
                     }
                 },
-                error: function (error) {
+                error: function (xhr, status, error) {
+                    console.log("Durum Kodu: " + xhr.status);
+                    console.log("Hata: " + error);
                     alert("İşlem Başarısız Olmuştur");
                 }
             });
         });
     });
+
+
 
 
 </script>
