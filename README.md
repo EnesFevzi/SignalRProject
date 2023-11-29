@@ -6,7 +6,7 @@
 
 
 
-![Screenshot_1](https://github.com/EnesFevzi/SignalRProject/assets/118919666/eddfa63e-2433-40b1-99e9-7a4f8fc72393)
+
 ![Screenshot_2](https://github.com/EnesFevzi/SignalRProject/assets/118919666/098b00ec-d894-422b-9088-0ac7fa83a5cf)
 ![Screenshot_3](https://github.com/EnesFevzi/SignalRProject/assets/118919666/13ae63d9-1939-4d7c-9b53-ee2333342e07)
 ![Screenshot_4](https://github.com/EnesFevzi/SignalRProject/assets/118919666/4cf5d575-0c2e-4e98-839d-4b264b99138a)
