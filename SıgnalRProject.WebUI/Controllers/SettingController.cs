@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SıgnalRProject.Entity.Entities;
 using SıgnalRProject.WebUI.DTOs.UserDto;
 
 namespace SıgnalRProject.WebUI.Controllers
 {
+    [Authorize]
     public class SettingController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

@@ -29,7 +29,7 @@ namespace SıgnalRProject.DataAccess.Mappings
             },
              new Product
              {
-                 ProductID = 3,
+                 ProductID = 6,
                  ProductName = "Bacon Avocado Burger",
                  Description = "Bacon ve avokado ile zenginleştirilmiş burger",
                  Price = 23.50m,
@@ -56,7 +56,7 @@ namespace SıgnalRProject.DataAccess.Mappings
              },
              new Product
              {
-                 ProductID = 6,
+                 ProductID = 3,
                  ProductName = "Vegan Beyond Burger",
                  Description = "Vegan ve et içermeyen bir lezzet deneyimi",
                  Price = 19.50m,

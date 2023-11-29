@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SıgnalRProject.Entity.Entities
 {
-    public class Discount : EntityBase
+    public class Discount : IEntityBase
     {
         public int DiscountID { get; set; }
         public string Title { get; set; }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SıgnalRProject.DataAccess.Context;
 
@@ -11,9 +12,10 @@ using SıgnalRProject.DataAccess.Context;
 namespace SıgnalRProject.DataAccess.Migrations
 {
     [DbContext(typeof(SıgnalRContext))]
-    partial class SıgnalRContextModelSnapshot : ModelSnapshot
+    [Migration("20231129194958_initial6")]
+    partial class initial6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -281,17 +283,17 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5061a29a-371f-4423-a802-f185cc48645d",
+                            ConcurrencyStamp = "8869bece-0b21-4a79-92d1-d4576d820326",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             Name = "Super",
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEK8RRT6lrjeOnkes4zKI8JIicfJMQ+e3607dwgyKqO51L1ouc9mU0neFWOxaoAVpeQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBsOQLCGTFkie8bMfssC7LN/WyPpimdZa/asUiXd2n6M5innsKq2X010/Ybp/67HLg==",
                             PhoneNumber = "+905439999999",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "8876ac59-981c-4f21-8387-4f2b4f95297a",
+                            SecurityStamp = "3ba95ae8-a47e-4775-888e-cfc72705edf8",
                             Surname = "Admin",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@gmail.com"
@@ -452,7 +454,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             CategoryID = 1,
                             CategoryName = "Hamburgerler",
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3398),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7241),
                             IsDeleted = false,
                             Status = false
                         },
@@ -460,7 +462,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             CategoryID = 2,
                             CategoryName = "Makarnalar",
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3408),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7296),
                             IsDeleted = false,
                             Status = false
                         },
@@ -468,7 +470,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             CategoryID = 3,
                             CategoryName = "Salatalar",
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3409),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7297),
                             IsDeleted = false,
                             Status = false
                         },
@@ -476,7 +478,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             CategoryID = 4,
                             CategoryName = "İçecekler",
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3410),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7298),
                             IsDeleted = false,
                             Status = false
                         },
@@ -484,7 +486,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             CategoryID = 5,
                             CategoryName = "Pizzalar",
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3410),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7298),
                             IsDeleted = false,
                             Status = false
                         });
@@ -837,35 +839,6 @@ namespace SıgnalRProject.DataAccess.Migrations
                     b.HasKey("NotificationID");
 
                     b.ToTable("Notifications");
-
-                    b.HasData(
-                        new
-                        {
-                            NotificationID = 1,
-                            Date = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3858),
-                            Description = "İşlem başarıyla tamamlandı.",
-                            Icon = "fa fa-check",
-                            Status = true,
-                            Type = "success"
-                        },
-                        new
-                        {
-                            NotificationID = 2,
-                            Date = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3860),
-                            Description = "Uyarı: Dikkatli olun!",
-                            Icon = "fa fa-exclamation-triangle",
-                            Status = true,
-                            Type = "warning"
-                        },
-                        new
-                        {
-                            NotificationID = 3,
-                            Date = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3861),
-                            Description = "Hata: İşlem sırasında bir hata oluştu.",
-                            Icon = "fa fa-times",
-                            Status = true,
-                            Type = "danger"
-                        });
                 });
 
             modelBuilder.Entity("SıgnalRProject.Entity.Entities.Order", b =>
@@ -1027,7 +1000,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 1,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3922),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7681),
                             Description = "Lezzetli bir classic burger",
                             ImageUrl = "/images/burger-images/burger.jpg",
                             IsDeleted = false,
@@ -1038,7 +1011,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 2,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3927),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7685),
                             Description = "İki katlı lezzetli bir cheeseburger",
                             ImageUrl = "/images/burger-images/double-cheeseburger.jpg",
                             IsDeleted = false,
@@ -1049,7 +1022,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 6,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3928),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7686),
                             Description = "Bacon ve avokado ile zenginleştirilmiş burger",
                             ImageUrl = "/images/burger-images/bacon-avocado-burger.jpg",
                             IsDeleted = false,
@@ -1060,7 +1033,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 4,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3929),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7687),
                             Description = "Mantar ve Swiss peyniri ile lezzetlendirilmiş burger",
                             ImageUrl = "/images/burger-images/mushroom-swiss-burger.jpg",
                             IsDeleted = false,
@@ -1071,7 +1044,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 5,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3930),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7688),
                             Description = "Barbekü sosu ve ranch soslu nefis bir burger",
                             ImageUrl = "/images/burger-images/bbq-ranch-burger.jpg",
                             IsDeleted = false,
@@ -1082,7 +1055,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 3,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3931),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7689),
                             Description = "Vegan ve et içermeyen bir lezzet deneyimi",
                             ImageUrl = "/images/burger-images/vegan-beyond-burger.jpg",
                             IsDeleted = false,
@@ -1093,7 +1066,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 7,
                             CategoryID = 2,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3931),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7689),
                             Description = "İtalyan usulü kıymalı makarna",
                             ImageUrl = "/images/makarna-images/spaghetti.jpg",
                             IsDeleted = false,
@@ -1104,7 +1077,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 8,
                             CategoryID = 3,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3932),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7690),
                             Description = "Lezzetli bir Cobb salata",
                             ImageUrl = "/images/salata-images/cobb-salad.jpg",
                             IsDeleted = false,
@@ -1115,7 +1088,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 9,
                             CategoryID = 4,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3933),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7691),
                             Description = "Soğuk ve serinletici kola",
                             ImageUrl = "/images/icecek-images/cola.png",
                             IsDeleted = false,
@@ -1126,7 +1099,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 10,
                             CategoryID = 5,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3934),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7692),
                             Description = "Sade ve lezzetli bir margarita pizza",
                             ImageUrl = "/images/pizza-images/margarita-pizza.png",
                             IsDeleted = false,
@@ -1137,7 +1110,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 11,
                             CategoryID = 2,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3935),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7692),
                             Description = "Tavuklu Alfredo makarna",
                             ImageUrl = "/images/makarna-images/chicken-alfredo-pasta.jpg",
                             IsDeleted = false,
@@ -1148,7 +1121,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 12,
                             CategoryID = 4,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3935),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7693),
                             Description = "Taze limonata içimi",
                             ImageUrl = "/images/icecek-images/lemonade.jpg",
                             IsDeleted = false,
@@ -1159,7 +1132,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 13,
                             CategoryID = 5,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3936),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7694),
                             Description = "Pepperoni ile zenginleştirilmiş pizza",
                             ImageUrl = "/images/pizza-images/pepperoni-pizza.jpg",
                             IsDeleted = false,
@@ -1170,7 +1143,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             ProductID = 14,
                             CategoryID = 2,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(3937),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7695),
                             Description = "Karidesli İtalyan makarna",
                             ImageUrl = "/images/makarna-images/shrimp-scampi.jpg",
                             IsDeleted = false,
@@ -1240,7 +1213,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         new
                         {
                             SliderID = 1,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(4044),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7763),
                             Description1 = "En lezzetli İtalyan pizzaları ile tanışın!",
                             Description2 = "Sağlığınız için özenle hazırlanan sağlıklı salatalarımızı deneyin!",
                             Description3 = "Lezzetli tatlılarımızla tatlı bir mola verin!",
@@ -1300,7 +1273,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         new
                         {
                             SocialMediaID = 1,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(4107),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7820),
                             Icon = "fa fa-github",
                             IsDeleted = false,
                             Title = "GitHub",
@@ -1309,7 +1282,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         new
                         {
                             SocialMediaID = 2,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(4108),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7821),
                             Icon = "fa fa-linkedin",
                             IsDeleted = false,
                             Title = "LinkedIn",
@@ -1318,7 +1291,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         new
                         {
                             SocialMediaID = 3,
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(4109),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7822),
                             Icon = "fa fa-briefcase",
                             IsDeleted = false,
                             Title = "Portföy Sitesi",
@@ -1380,7 +1353,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             TestimonialID = 1,
                             Comment = "Yemekleri ve hizmeti çok seviyorum! Kesinlikle tavsiye ederim.",
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(4182),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7907),
                             ImageUrl = "/images/60111.jpg",
                             IsDeleted = false,
                             Name = "Tarık Yüksel",
@@ -1390,7 +1363,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             TestimonialID = 2,
                             Comment = "Arkadaşlarınızla vakit geçirmek için harika bir yer. Lezzetli burgerler!",
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(4183),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7908),
                             ImageUrl = "/images/60111.jpg",
                             IsDeleted = false,
                             Name = "Tekin Öztürk",
@@ -1400,7 +1373,7 @@ namespace SıgnalRProject.DataAccess.Migrations
                         {
                             TestimonialID = 3,
                             Comment = "Mükemmel müşteri hizmeti. Kesinlikle tekrar ziyaret edeceğim.",
-                            CreatedDate = new DateTime(2023, 11, 29, 23, 9, 44, 747, DateTimeKind.Local).AddTicks(4185),
+                            CreatedDate = new DateTime(2023, 11, 29, 22, 49, 57, 266, DateTimeKind.Local).AddTicks(7909),
                             ImageUrl = "/images/60111.jpg",
                             IsDeleted = false,
                             Name = "Eren Yaman",

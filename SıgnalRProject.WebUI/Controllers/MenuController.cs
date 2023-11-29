@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SıgnalRProject.WebUI.Controllers
 {
-    [Authorize]
+
     public class MenuController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

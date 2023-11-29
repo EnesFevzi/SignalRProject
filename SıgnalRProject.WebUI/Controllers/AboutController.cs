@@ -27,6 +27,20 @@ namespace SıgnalRProject.WebUI.Controllers
             }
             return View();
         }
+        [AllowAnonymous]
+        public async Task<IActionResult> AboutUI()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7024/api/About");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
         [HttpGet]
         public IActionResult CreateAbout()
         {

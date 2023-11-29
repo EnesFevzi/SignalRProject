@@ -6,9 +6,11 @@ using System.IO ;
 using ZXing;
 using ZXing.QrCode;
 using ZXing.Windows.Compatibility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SıgnalRProject.WebUI.Controllers
 {
+    [Authorize]
     public class QRCodeController : Controller
     {
         [HttpGet]

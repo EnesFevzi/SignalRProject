@@ -1,4 +1,5 @@
 ﻿using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using SıgnalRProject.WebUI.DTOs;
@@ -6,6 +7,7 @@ using SıgnalRProject.WebUI.DTOs.MailDto;
 
 namespace SıgnalRProject.WebUI.Controllers
 {
+    [Authorize]
     public class MailController : Controller
     {
         [HttpGet]

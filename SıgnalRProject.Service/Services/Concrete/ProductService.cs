@@ -74,7 +74,7 @@ namespace SıgnalRProject.Service.Services.Concrete
 
         public async Task<decimal> ProductAvgPriceByHamburger()
         {
-            var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "Hamburger");
+            var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "Hamburgerler");
             var products = await unıtOfWork.GetRepository<Product>().GetAllAsync(x => x.CategoryID == hamburgerCategory.CategoryID);
             var average = products.Average(x => x.Price);
             return average;
@@ -96,7 +96,7 @@ namespace SıgnalRProject.Service.Services.Concrete
         public async Task<int> ProductCountByCategoryNameHamburger()
         {
             //var hamburgerCategory = await unıtOfWork.GetRepository<Category>().GetAsync(x => x.CategoryName == "Hamburger");
-            var products = await unıtOfWork.GetRepository<Product>().CountAsync(x => x.Category.CategoryName == "Hamburger");
+            var products = await unıtOfWork.GetRepository<Product>().CountAsync(x => x.Category.CategoryName == "Hamburgerler");
             return products;
         }
 

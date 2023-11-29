@@ -55,9 +55,10 @@ namespace SıgnalRProject.WebUI
 					Name = "MySignalRProjectCookie",
 					HttpOnly = true,
 					SameSite = SameSiteMode.Strict,
-					SecurePolicy = CookieSecurePolicy.SameAsRequest //Always 
+                    SecurePolicy = CookieSecurePolicy.SameAsRequest, // Always 
+                    IsEssential = true 
 
-				};
+                };
 				config.SlidingExpiration = true;
 				config.ExpireTimeSpan = TimeSpan.FromDays(7);
 				config.AccessDeniedPath = new PathString("/Auth/AccessDenied");
@@ -86,7 +87,7 @@ namespace SıgnalRProject.WebUI
 
 			app.MapControllerRoute(
 				name: "default",
-				pattern: "{controller=Home}/{action=Index}/{id?}");
+				pattern: "{controller=Statistic}/{action=Index}/{id?}");
 
 			app.Run();
 		}

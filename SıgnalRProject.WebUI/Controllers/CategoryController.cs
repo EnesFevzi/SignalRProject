@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SıgnalRProject.WebUI.DTOs.CategoriesDto;
 using System.Text;
 
 namespace SıgnalRProject.WebUI.Controllers
 {
+	[Authorize]
 	public class CategoryController : Controller
 	{
 		private const string link = "https://localhost:7024/api";

@@ -1,0 +1,58 @@
+﻿
+
+@{
+    ViewData["Title"] = "AboutUI";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<partial name="_UILayoutPartial/_UILayoutHeadPartial"></partial>
+
+<body class="sub_page">
+    <partial name="_MenuNavbarPartial"></partial>
+    <section class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="img-box">
+                        <img src="~/feane-1.0.0/images/about-img.png" alt="">
+                       
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <div class="heading_container">
+                            <h2>
+                              
+                            </h2>
+                        </div>
+                        <p>
+                            🍽️ E&F Restoran - Lezzetin Doruklarına Yolculuk
+
+                            Hoş geldiniz! E&F Restoran, sıcak atmosferi ve lezzet dolu menüsü ile gastronomi tutkunlarına unutulmaz bir deneyim sunuyor.
+                        </p>
+                        <p>
+                            Biz Kimiz?
+                            E&F Restoran, yılların deneyimine sahip bir ekip tarafından yönetilmektedir. Lezzet tutkumuz ve misafirperverliğimiz ile müşterilerimize unutulmaz anlar yaşatmayı hedefliyoruz.
+                        </p>
+                        <p>
+                            Menümüzde Neler Var?
+                            Mutfak ekibimiz, özenle seçilmiş malzemelerle hazırladığı zengin menüsü ile dikkat çekiyor. Türk ve dünya mutfağının en özel lezzetlerini bir araya getirerek, damak zevkinize hitap ediyoruz.
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @await Component.InvokeAsync("_UILayoutFooter")
+
+    <partial name="_UILayoutPartial/_UILayoutScriptPartial"></partial>
+</body>
+</html>
+
+
+
