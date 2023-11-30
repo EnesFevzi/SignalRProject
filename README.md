@@ -21,6 +21,7 @@ Hotel Rezervasyon Projesi, Asp.Net Core Api SignalR ile QR Kodlu Sipariş Yönet
 - HTML, CSS, Bootstrap
 - SQL Server
 - RapidAPI ve ApiConsume (API entegrasyonu için kullanıldı)
+- N-Tier Architecture
 
 ## Kurulum ve Çalıştırma
 
