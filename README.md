@@ -1,7 +1,41 @@
 # SıgnalRProject
 
 
+Hotel Rezervasyon Projesi, Asp.Net Core Api SignalR ile QR Kodlu Sipariş Yönetimi müşterilerin resturantaki masa QR kodunu aratarak sipariş ve diğer işlemleri SIGNALR üzerinden gerçekleştirmesini hedefler.
 
+## Özellikler
+
+- Kullanıcılar, QR kodunu okutarak sipariş verebilirler.
+- Kullanıcılar, restaurant ile gerçek zamanlı olarak mesajlaşabilirler.
+- Kullanıcılar, menü detayları sayfasında menü hakkında bilgilere, fotoğraflara ve içeriklerine ulaşabilirler.
+- Kullanıcılar, seçtikleri masayı rezerve edebilir ve rezervasyonlarını yönetebilirler.
+- Admin kullanıcıları, menüleri ve diğer özellikleri yönetebilir, rezervasyonları onaylayabilir ve site ayarlarını düzenleyebilirler.
+
+## Teknolojiler ve Araçlar
+
+- ASP.NET Core 6.0
+- Entity Framework Core
+- Fluent Validation
+- AutoMapper
+- SignalR (Real Time)
+- HTML, CSS, Bootstrap
+- SQL Server
+- RapidAPI ve ApiConsume (API entegrasyonu için kullanıldı)
+
+## Kurulum ve Çalıştırma
+
+1. Depoyu bilgisayarınıza klonlayın.
+2. SQL Server üzerinde bir veritabanı oluşturun.
+3. appsettings.json dosyasında veritabanı bağlantı dizesini güncelleyin.
+4. `dotnet ef database update` komutunu çalıştırarak veritabanı tablolarını oluşturun.
+5. Projeyi çalıştırın ve web uygulamasını tarayıcınızda görüntüleyin.
+
+## RapidAPI ve ApiConsume, API (Application Programming Interface) hizmetlerini kullanmayı kolaylaştıran araçlardır.
+
+RapidAPI, farklı hizmet sağlayıcıların sunduğu API'leri tek bir yerden erişilebilir hale getiren bir platformdur. Bu platform, geliştiricilere geniş bir API koleksiyonuna erişme imkanı sağlar. RapidAPI üzerinden çeşitli kategorilerdeki API'lere erişebilir, bu API'lerin belgelerini ve kullanım kılavuzlarını inceleyebilir ve projelerinizde bu API'leri kullanabilirsiniz. RapidAPI'nin sunduğu avantajlardan biri, API'lere erişmek ve entegrasyonlarınızı yönetmek için tek bir arayüz sağlamasıdır. Böylece farklı API'ler için ayrı ayrı hesaplar oluşturmanıza gerek kalmaz.
+
+## SignalR Core Nedir ?
+SignalR, gerçek zamanlı uygulamalar oluşturabileceğiniz açık kaynaklı bir kütüphanedir. İçerisinde sunucu tarafından, istemci tarafındaki bir kodu çalıştırabilmemize olanak sağlayan API lar bulundurur.
 
 
 
