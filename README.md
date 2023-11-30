@@ -1,15 +1,34 @@
-# SıgnalRProject
-
-
-Hotel Rezervasyon Projesi, Asp.Net Core Api SignalR ile QR Kodlu Sipariş Yönetimi müşterilerin resturantaki masa QR kodunu aratarak sipariş ve diğer işlemleri SIGNALR üzerinden gerçekleştirmesini hedefler.
+## QR Kodlu Sipariş Yönetimi Projesi
+QR Kodlu Sipariş Yönetimi Projesi, Asp.Net Core Api ve SignalR kullanılarak müşterilerin restorandaki masa QR kodunu tarayarak sipariş ve diğer işlemleri gerçekleştirmeyi hedefler.
 
 ## Özellikler
+QR Kod ile Sipariş: Kullanıcılar, restorandaki masaların QR kodunu tarayarak hızlı bir şekilde sipariş verebilirler.
 
-- Kullanıcılar, QR kodunu okutarak sipariş verebilirler.
-- Kullanıcılar, restaurant ile gerçek zamanlı olarak mesajlaşabilirler.
-- Kullanıcılar, menü detayları sayfasında menü hakkında bilgilere, fotoğraflara ve içeriklerine ulaşabilirler.
-- Kullanıcılar, seçtikleri masayı rezerve edebilir ve rezervasyonlarını yönetebilirler.
-- Admin kullanıcıları, menüleri ve diğer özellikleri yönetebilir, rezervasyonları onaylayabilir ve site ayarlarını düzenleyebilirler.
+Gerçek Zamanlı Mesajlaşma: Kullanıcılar, restoran ile gerçek zamanlı olarak iletişim kurabilir, özel isteklerini iletebilirler.
+
+Menü Detayları: Kullanıcılar, menü detayları sayfasında yemekler hakkında detaylı bilgilere, fotoğraflara ve içeriklere ulaşabilirler.
+
+Rezervasyon Yönetimi: Kullanıcılar, istedikleri masayı rezerve edebilir ve rezervasyonlarını kolayca yönetebilirler.
+
+Admin Paneli: Admin kullanıcıları, menüleri düzenleyebilir, rezervasyonları onaylayabilir ve site ayarlarını yönetebilirler.
+
+## Nasıl Çalışır?
+QR Kod ile Sipariş Verme:
+
+Müşteriler, restorandaki masaların QR kodunu tarayarak mobil cihazları üzerinden hızlıca sipariş verebilirler.
+Gerçek Zamanlı İletişim:
+
+Kullanıcılar, SignalR üzerinden restoran ile gerçek zamanlı olarak iletişim kurabilir, özel taleplerini iletebilirler.
+Menü Detayları:
+
+Menü detayları sayfasında, kullanıcılar seçtikleri yemekler hakkında detaylı bilgilere, görsellere ve içeriklere ulaşabilirler.
+Rezervasyon İşlemleri:
+
+Kullanıcılar, rezervasyon sayfasından istedikleri masayı seçebilir ve rezervasyonlarını yönetebilirler.
+Admin Kontrol Paneli:
+
+Admin kullanıcıları, menüleri güncelleyebilir, rezervasyonları onaylayabilir ve site ayarlarını düzenleyebilirler.
+Bu proje, modern bir restoran deneyimi sunarak hem müşterilere hem de işletmelere pratik ve etkili bir çözüm sağlamayı amaçlamaktadır. Eğer herhangi bir sorunuz veya geri bildiriminiz varsa, lütfen bize bildirin. İyi kullanımlar! 🍽️✨
 
 ## Teknolojiler ve Araçlar
 
